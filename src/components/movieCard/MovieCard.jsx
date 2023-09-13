@@ -29,7 +29,7 @@ const MovieCard = ({movie}) => {
 }
 
 
-// API_KEY=https://api.themoviedb.org/3/movie/550?api_key=74d2b4801ab61c8dedffb02a29cabcf4
+
 
 
 export default MovieCard;
