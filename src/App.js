@@ -10,7 +10,7 @@ import MovieList from './components/MovieList';
 function App() {
 
   const API_KEY = process.env.REACT_API_KEY
-  const API_URL = `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`;
+  const API_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
   
   // State to store the fetched movies
   const [movies, setMovies] = useState([]);
