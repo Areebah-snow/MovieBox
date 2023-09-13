@@ -4,6 +4,8 @@ import MovieCard from '../components/movieCard/MovieCard'; // Import your MovieC
 const MovieList = ({ movies }) => {
   return (
     <div className="movie-list">
+
+  
       {movies?.map((movie) => (
         <MovieCard/>
       ))}

@@ -5,21 +5,33 @@ import LandingPage from './components/landingpage/LandingPage';
 import MovieList from './components/MovieList';
 
 
+
+
 function App() {
-  const API_KEY = "https://api.themoviedb.org/3/movie/550?api_key=1ef91e2e402f45a12493311c6d974d7c"
-  const [movies, setMovies]=useState([])
-  const [url_set,setUrl] = useState(API_KEY)
 
-  useEffect(()=>{
-  fetch(API_KEY)
-    .then(res => res.json())
-    //.then(data=> console.log(data.results))
-    .then(data => setMovies(data=> console.log(data)))
-    
+  const API_KEY = process.env.REACT_API_KEY
+  const API_URL = `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`;
+  
+  // State to store the fetched movies
+  const [movies, setMovies] = useState([]);
 
-  },[url_set])
+  useEffect(() => {
+    // Fetch movie data from the API
+    fetch(API_URL)
+      .then((res) => res.json()) // Parse the response as JSON
+      .then((data) => {
+        // Update the movies state with the fetched data
+        setMovies(data.results);
+        // Log the fetched movie data
+        console.log('Fetched movie data:', data.results);
+      })
+      .catch((error) => {
+        console.error('Error fetching movies:', error);
+      });
+  }, []); 
 
- // console.log(movies)
+
+   
   
 
 
