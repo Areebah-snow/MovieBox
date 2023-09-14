@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <LandingPage/>
+      <LandingPage apiKey={API_KEY}/>
       
       <MovieList movies={movies}/>
     </div>

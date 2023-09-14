@@ -4,10 +4,10 @@ import Header from '../header/Header';
 
 import "./landingpage.css"
 
-const LandingPage = () => {
+const LandingPage = ({apiKey}) => {
     return (
             <div className="main-container">
-                <Navbar/>
+                <Navbar apiKey={apiKey}/>
                 <Header/>
             </div>
     )

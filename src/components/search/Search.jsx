@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MovieCard from '../movieCard/MovieCard';
 
 function Search({ apiKey }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,11 +33,16 @@ function Search({ apiKey }) {
         <i className="fa-solid fa-magnifying-glass"></i>
       </form>
 
-      <ul>
-        {searchResults.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
+      
+      <div className="movie-card-container">
+      {searchResults.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          movies={movie}
+        />
+      ))}
+    </div>
+     
     </div>
   );
 }
