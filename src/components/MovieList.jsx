@@ -3,13 +3,17 @@ import MovieCard from '../components/movieCard/MovieCard'; // Import your MovieC
 
 const MovieList = ({ movies }) => {
   return (
-    <div className="movie-list">
-
+    <div className="featured">
+      <h1>Featured Movie</h1>
+      <div className="movie-list">
+     
   
-      {movies?.map((movie) => (
-        <MovieCard/>
-      ))}
+     {movies.map((movies) => (
+       <MovieCard movies={movies}/>
+     ))}
+   </div>
     </div>
+   
   );
 };
 
