@@ -1,19 +1,16 @@
-import React from 'react';
-import MovieCard from '../components/movieCard/MovieCard'; // Import your MovieCard component
+import React from "react";
+import MovieCard from "../components/movieCard/MovieCard"; // Import your MovieCard component
 
 const MovieList = ({ movies }) => {
   return (
     <div className="featured">
-      <h1>Featured Movie</h1>
+      <h1>Featured Movies</h1>
       <div className="movie-list">
-     
-  
-     {movies.map((movies) => (
-       <MovieCard movies={movies}/>
-     ))}
-   </div>
+        {movies?.map((movie) => (
+          <MovieCard key={movie.id} movies={movie} />
+        ))}
+      </div>
     </div>
-   
   );
 };
 

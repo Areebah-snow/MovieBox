@@ -1,47 +1,35 @@
-import React from 'react';
-import {useState, useEffect} from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import LandingPage from './components/landingpage/LandingPage';
 import MovieList from './components/MovieList';
 
 function App() {
-  
-  const API_KEY = process.env.REACT_APP_API_KEY
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const [movies, setMovies] = useState([]);
-   const [term, setTerm] = useState('')
-  
-  useEffect(() => {
-   
-    const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
- 
+  const [term, setTerm] = useState('');
 
-   
+  useEffect(() => {
+    const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
+
     // Fetch movie data from the API
-    fetch(API_URL)
-      .then((res) => res.json()) 
-      .then((data) => {
+    axios
+      .get(API_URL)
+      .then((response) => {
         // Update the movies state with the fetched data
-        setMovies(data.results);
+        setMovies(response.data.results);
 
         // Log the fetched movie data
-        console.log('Fetched movie data:', data.results);
+        console.log("Fetched movie data:", response.data.results);
       })
       .catch((error) => {
         console.error('Error fetching movies:', error);
-   });
-},[]);
-
-
-   
-  
-
-
+      });
+  }, []);
 
   return (
     <div className="App">
-      <LandingPage apiKey={API_KEY}/>
-      
-      <MovieList movies={movies}/>
+      <LandingPage apiKey={API_KEY} />
+      <MovieList movies={movies} />
     </div>
   );
 }
