@@ -3,6 +3,9 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import LandingPage from './components/landingpage/LandingPage';
 import MovieList from './components/MovieList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Router } from 'express';
+import Layout from './components/Layout';
 
 function App() {
   
@@ -39,6 +42,16 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
+        <Routes>
+           <Route path="/" element={<Layout/>}>
+              <Route index element={<LandingPage/>}/>
+              {/* <Route index element={<LandingPage/>}/> */}
+              
+
+           </Route>
+        </Routes>
+      </BrowserRouter>
       <LandingPage apiKey={API_KEY}/>
       
       <MovieList movies={movies}/>
